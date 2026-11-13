@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Lirio para Ti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- PÁGINA PRINCIPAL - FLOR -->
+    <div id="page-flower" class="page active">
+        <div class="container">
+            <div class="instruction">Presiona el lirio</div>
+            <div class="flower" role="button" tabindex="0" aria-label="Presiona el lirio para ver tu mensaje"
+                 onclick="showMessage()"
+                 onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showMessage(); }">
+                <svg class="lily-art" viewBox="0 0 400 420" role="img" aria-label="Lirio rosado de seis pétalos">
+                    <defs>
+                        <linearGradient id="petalOuter" x1="0" y1="0" x2="0.8" y2="1">
+                            <stop offset="0" stop-color="#fffafd" />
+                            <stop offset="0.48" stop-color="#f9d7e3" />
+                            <stop offset="1" stop-color="#df86a5" />
+                        </linearGradient>
+                        <linearGradient id="petalInner" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#fff8fc" />
+                            <stop offset="0.55" stop-color="#f6c7d8" />
+                            <stop offset="1" stop-color="#d96f96" />
+                        </linearGradient>
+                        <linearGradient id="leafGradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#a8c98a" />
+                            <stop offset="1" stop-color="#477b55" />
+                        </linearGradient>
+                        <linearGradient id="stemGradient" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0" stop-color="#477b55" />
+                            <stop offset="0.5" stop-color="#8fb879" />
+                            <stop offset="1" stop-color="#477b55" />
+                        </linearGradient>
+                        <linearGradient id="filamentGradient" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0" stop-color="#9c7540" />
+                            <stop offset="0.5" stop-color="#e5bd78" />
+                            <stop offset="1" stop-color="#9c7540" />
+                        </linearGradient>
+                        <radialGradient id="pollenGradient">
+                            <stop offset="0" stop-color="#ffe6a0" />
+                            <stop offset="1" stop-color="#d28c35" />
+                        </radialGradient>
+                        <radialGradient id="flowerCore">
+                            <stop offset="0" stop-color="#f5c7d7" />
+                            <stop offset="1" stop-color="#c96c91" />
+                        </radialGradient>
+                        <filter id="lilyShadow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feGaussianBlur stdDeviation="5" />
+                        </filter>
+                    </defs>
+
+                    <!-- Tallo y hojas -->
+                    <ellipse cx="201" cy="371" rx="12" ry="5" fill="#789b68" opacity="0.13" filter="url(#lilyShadow)" />
+                    <path d="M201 194 C194 258 207 313 201 450" fill="none" stroke="url(#stemGradient)" stroke-width="10" stroke-linecap="round" />
+                    <path d="M202 320 C164 288 116 286 83 302 C119 339 165 345 202 320Z" fill="url(#leafGradient)" stroke="#477b55" stroke-width="1.5" />
+                    <path d="M199 354 C229 315 277 300 319 311 C294 352 246 371 199 354Z" fill="url(#leafGradient)" stroke="#477b55" stroke-width="1.5" />
+                    <path d="M91 303 C132 309 164 315 198 320 M310 314 C270 329 237 342 202 354" fill="none" stroke="#d6e5c7" stroke-width="2" opacity="0.65" />
+
+                    <!-- La cabeza del lirio gira sin mover el tallo ni las hojas -->
+                    <g class="lily-head">
+                    <!-- Tres pétalos exteriores -->
+                    <g class="tepal tepal-outer" transform="rotate(0 200 205)">
+                        <path class="tepal-shape" d="M200 211 C172 177 123 113 159 54 C171 29 188 13 200 8 C212 13 229 29 241 54 C277 113 228 177 200 211Z" fill="url(#petalOuter)" />
+                        <path class="tepal-vein" d="M200 202 C195 151 193 87 200 20" />
+                        <path class="tepal-mark" d="M184 184 C178 169 175 157 174 145 M216 184 C222 169 225 157 226 145" />
+                        <g class="freckles"><circle cx="190" cy="174" r="2.5"/><circle cx="200" cy="165" r="2.8"/><circle cx="210" cy="174" r="2.5"/><circle cx="183" cy="160" r="1.8"/><circle cx="217" cy="160" r="1.8"/></g>
+                    </g>
+                    <g class="tepal tepal-outer" transform="rotate(120 200 205)">
+                        <path class="tepal-shape" d="M200 211 C172 177 123 113 159 54 C171 29 188 13 200 8 C212 13 229 29 241 54 C277 113 228 177 200 211Z" fill="url(#petalOuter)" />
+                        <path class="tepal-vein" d="M200 202 C195 151 193 87 200 20" />
+                        <path class="tepal-mark" d="M184 184 C178 169 175 157 174 145 M216 184 C222 169 225 157 226 145" />
+                        <g class="freckles"><circle cx="190" cy="174" r="2.5"/><circle cx="200" cy="165" r="2.8"/><circle cx="210" cy="174" r="2.5"/><circle cx="183" cy="160" r="1.8"/><circle cx="217" cy="160" r="1.8"/></g>
+                    </g>
+                    <g class="tepal tepal-outer" transform="rotate(240 200 205)">
+                        <path class="tepal-shape" d="M200 211 C172 177 123 113 159 54 C171 29 188 13 200 8 C212 13 229 29 241 54 C277 113 228 177 200 211Z" fill="url(#petalOuter)" />
+                        <path class="tepal-vein" d="M200 202 C195 151 193 87 200 20" />
+                        <path class="tepal-mark" d="M184 184 C178 169 175 157 174 145 M216 184 C222 169 225 157 226 145" />
+                        <g class="freckles"><circle cx="190" cy="174" r="2.5"/><circle cx="200" cy="165" r="2.8"/><circle cx="210" cy="174" r="2.5"/><circle cx="183" cy="160" r="1.8"/><circle cx="217" cy="160" r="1.8"/></g>
+                    </g>
+
+                    <!-- Tres pétalos interiores, alternados -->
+                    <g class="tepal tepal-inner" transform="rotate(60 200 205)">
+                        <path class="tepal-shape" d="M200 211 C181 173 151 105 177 48 C186 27 195 15 200 10 C205 15 214 27 223 48 C249 105 219 173 200 211Z" fill="url(#petalInner)" />
+                        <path class="tepal-vein" d="M200 202 C198 151 198 90 200 22" />
+                    </g>
+                    <g class="tepal tepal-inner" transform="rotate(180 200 205)">
+                        <path class="tepal-shape" d="M200 211 C181 173 151 105 177 48 C186 27 195 15 200 10 C205 15 214 27 223 48 C249 105 219 173 200 211Z" fill="url(#petalInner)" />
+                        <path class="tepal-vein" d="M200 202 C198 151 198 90 200 22" />
+                    </g>
+                    <g class="tepal tepal-inner" transform="rotate(300 200 205)">
+                        <path class="tepal-shape" d="M200 211 C181 173 151 105 177 48 C186 27 195 15 200 10 C205 15 214 27 223 48 C249 105 219 173 200 211Z" fill="url(#petalInner)" />
+                        <path class="tepal-vein" d="M200 202 C198 151 198 90 200 22" />
+                    </g>
+
+                    <!-- Estambres y pistilo -->
+                    <g class="stamens">
+                        <g transform="rotate(0 200 205)"><path d="M200 204 C197 181 196 157 199 136"/><ellipse cx="199" cy="134" rx="5.5" ry="10" transform="rotate(12 199 134)" /></g>
+                        <g transform="rotate(60 200 205)"><path d="M200 204 C197 181 196 157 199 136"/><ellipse cx="199" cy="134" rx="5.5" ry="10" transform="rotate(12 199 134)" /></g>
+                        <g transform="rotate(120 200 205)"><path d="M200 204 C197 181 196 157 199 136"/><ellipse cx="199" cy="134" rx="5.5" ry="10" transform="rotate(12 199 134)" /></g>
+                        <g transform="rotate(180 200 205)"><path d="M200 204 C197 181 196 157 199 136"/><ellipse cx="199" cy="134" rx="5.5" ry="10" transform="rotate(12 199 134)" /></g>
+                        <g transform="rotate(240 200 205)"><path d="M200 204 C197 181 196 157 199 136"/><ellipse cx="199" cy="134" rx="5.5" ry="10" transform="rotate(12 199 134)" /></g>
+                        <g transform="rotate(300 200 205)"><path d="M200 204 C197 181 196 157 199 136"/><ellipse cx="199" cy="134" rx="5.5" ry="10" transform="rotate(12 199 134)" /></g>
+                    </g>
+                    <circle class="flower-center" cx="200" cy="205" r="13" />
+                    </g>
+                </svg>
+            </div>
+            <div id="loading" class="loading">
+                <div class="loading-text">Cargando</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA MENSAJE - TYPING EFFECT -->
+    <div id="page-message" class="page">
+        <div class="mensaje-container">
+            <div class="sparkles" id="sparkles"></div>
+            <div class="content">
+                <h1 id="typing-text" class="typing-text"></h1>
+                <span class="cursor" id="cursor">|</span>
+            </div>
+            <button class="back-btn" onclick="showLovePage()">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- PÁGINA TE AMO - CORAZÓN DIBUJADO -->
+    <div id="page-love" class="page">
+        <div class="love-container">
+            <div class="love-content">
+                <h1 id="love-typing-text" class="love-text"></h1>
+                <span class="love-cursor" id="love-cursor">|</span>
+                <svg class="heart-svg" width="100" height="100" viewBox="0 0 100 100">
+                    <path id="heart-path" class="heart-path" d="M50,85 C20,65 5,40 5,25 C5,15 15,5 25,5 C35,5 45,15 50,25 C55,15 65,5 75,5 C85,5 95,15 95,25 C95,40 80,65 50,85 Z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
